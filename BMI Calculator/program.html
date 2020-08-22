@@ -1,0 +1,335 @@
+<div id="bmiMainProgramDiv">
+<!--CSS-->
+	<style>
+
+	#bmiCalculatorDiv{
+		border: 1px solid #e4e4e4; 
+		border-radius: 5px;
+		background-color: white;
+		font-family : 'Open Sans', Helvetica, Arial, sans-serif; 
+		box-shadow : 1px 2px #f2f2f2;
+		
+
+	}
+
+	#bmiCalculatorDiv #bmiCalTitle {
+
+		padding-left: 10px;
+		padding-top:10px;
+		text-align:left;
+		color: black;
+
+	} 
+
+	#bmiCalculatorDiv #bmiHeightDiv{
+		padding-bottom:25px;
+
+	}
+
+	#bmiCalculatorDiv #bmiWeightDiv {
+		padding-bottom:25px;
+	}	
+	
+	
+	#bmiCalculatorDiv #bmiHeightLabel{
+
+		padding-left: 10px;
+		font-weight:300;
+	} 
+
+	#bmiCalculatorDiv #bmiWeightLabel{
+		padding-left:10px;
+		font-weight:300;
+	}	
+	
+		
+	#bmiCalculatorDiv #bmiHeightInput{
+		
+		width:150px;
+		height:30px;
+		text-align:right;
+		margin-left:3px;
+		padding-right:30px;
+		cursor:pointer;
+		border: 1px solid #aaaaaa;
+		border-radius:5px; 
+	}
+
+	#bmiCalculatorDiv #bmiHeightInput:hover{
+
+		box-shadow: 1px 1px #949494;
+
+	}
+
+	#bmiCalculatorDiv #bmiHeightInput:focus{
+		outline: none ;
+		border-color: #2c2c2c ;
+		
+		
+	}
+
+	#bmiCalculatorDiv #bmiHeightInput::-webkit-outer-spin-button,
+	#bmiCalculatorDiv #bmiHeightInput::-webkit-inner-spin-button{
+
+		-webkit-appearance: none;
+  		margin: 0;
+	}
+
+	#bmiCalculatorDiv #bmiHeightInput[type=number]{
+
+		-moz-appearance: textfield;
+	}
+
+
+	#bmiCalculatorDiv #bmiWeightInput {
+
+		width:150px;
+		height:30px;
+		text-align:right;
+		padding-right:30px;
+		cursor:pointer;
+		border: 1px solid #aaaaaa;
+		border-radius:5px; 
+
+	}
+
+	#bmiCalculatorDiv #bmiWeightInput:hover{
+
+		box-shadow: 1px 1px #949494;
+
+	}
+
+	#bmiCalculatorDiv #bmiWeightInput:focus 
+	{
+		outline: none ;
+		border-color: #2c2c2c ;
+	}
+
+	#bmiCalculatorDiv #bmiWeightInput::-webkit-outer-spin-button,
+	#bmiCalculatorDiv #bmiWeightInput::-webkit-inner-spin-button 
+	{
+		-webkit-appearance: none;
+  		margin: 0;
+
+	}
+
+	#bmiCalculatorDiv #bmiWeightInput[type=number]{
+
+		-moz-appearance: textfield;
+	}
+
+
+	#bmiCalculatorDiv #bmiBtnDiv {
+	
+		padding-left: 10px;
+		padding-bottom:10px;
+
+	}
+
+
+	#bmiCalculatorDiv #bmiCalButton{
+		background-color: #333f49;
+		color:white;
+		height:50px;
+		border-radius: 5px;
+		padding:10px;
+		font-weight:600;
+		cursor:pointer;
+		text-decoration:none;
+
+	}
+
+	#bmiCalculatorDiv #bmiCalButton:hover {
+		background-color :#152192;
+
+	}
+
+	#bmiCalculatorDiv #bmiResultDiv{
+		padding-top:10px;
+		padding-left:10px;
+	}
+
+	#bmiCalculatorDiv #bmiTableDiv{
+
+		padding-top:10px;
+	}
+
+	#bmiCalculatorDiv #bmiTable{
+		border: 1px solid #aaaaaa; 
+		border-collapse: collapse;
+		width:300px;
+	}
+
+	#bmiCalculatorDiv #bmiTable td, #bmiCalculatorDiv #bmiTable th{
+
+		border: 1px solid #aaaaaa; 
+		padding:5px;
+	}
+
+	#bmiCalculatorDiv #bmiTable th{
+
+		background-color: #333f49; 
+		color: white; 
+	}
+
+	#bmiCalculatorDiv #bmiTable tr:hover{
+
+		background-color: #f2f2f2;
+	}
+
+
+	#bmiCalculatorDiv #sdraPowerDiv{
+		font-size: 10px;
+		padding:10px;
+	}
+
+
+
+	</style>
+
+
+	<!--BMI Template-->
+	<div id="bmiCalculatorDiv">
+
+		<h2 id="bmiCalTitle">BMI Calculator</h2>
+			<div id="bmiHeightDiv">
+				<label id="bmiHeightLabel">Height:</label> 
+				<input id="bmiHeightInput" type="number"/> <span style="margin-left:-30px;">cm</span>
+			</div>
+			<div id="bmiWeightDiv">
+				<label id="bmiWeightLabel">Weight:</label>
+				<input id="bmiWeightInput" type="number"/> <span style="margin-left:-30px;">kg</span>		
+			</div>
+			<div id="bmiBtnDiv">
+				<a id="bmiCalButton">Calculate</a>
+			</div>
+		
+			<div id="bmiResultDiv">
+				<div id="bmiResultTextDiv">Your Body Mass Index(BMI) : <span id="calResultSpan">0</span></div>
+				<div id="bmiTableDiv"> 
+					<table id="bmiTable">
+						<tr>
+							<th>Category</th>
+							<th>BMI Range</th>
+						</tr>
+						<tr id="servereThinTr">
+							<td>Severe Thinness</td>
+							<td>< 16</td>
+						</tr>
+						<tr id="moderateThinTr">
+							<td>Moderate Thinness</td>
+							<td>16 - 17</td>
+						</tr>
+						<tr id="mildThinTr">
+							<td>Mild Thinness</td>
+							<td>17 - 18.5</td>
+						</tr>
+						<tr id ="normalTr">
+							<td>Normal</td>
+							<td>18.5 - 25</td>
+						</tr>
+						<tr id="overweightTr">
+							<td>Overweight</td>
+							<td>25 - 30</td>
+						</tr>
+						<tr id="obeseITr">
+							<td>Obese Class I</td>
+							<td>30 - 35</td>
+						</tr>
+						<tr id="obeseIITr">
+							<td>Obese Class II</td>
+							<td>35 - 40</td>
+						</tr>
+						<tr id="obeseIIITr">
+							<td>Obese Class III</td>
+							<td>> 40</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+
+
+			<div id="sdraPowerDiv">
+				Powered by <a href="https://s-dra.com/">S-DRA</a>
+			</div>
+	</div>
+
+	<!--Javascript-->
+	<script>
+
+		var calButton = document.getElementById("bmiCalButton");
+	
+		calButton.onclick = function(){
+	
+			var heightInput = document.getElementById("bmiHeightInput").value;
+			var weightInput = document.getElementById("bmiWeightInput").value;
+			
+			if ( heightInput == "" || weightInput == ""){
+				return ; 
+			}
+
+			var heightInMeter = parseFloat(heightInput) / 100 ; 
+			var weight = parseFloat(weightInput) ; 
+
+			//console.log(heightInMeter);
+			//console.log(weight);
+
+			var bmi = (weight / (heightInMeter*heightInMeter)).toFixed(1);
+
+			document.getElementById("calResultSpan").innerHTML = bmi ; 
+
+			//Resetting
+			document.getElementById("servereThinTr").style.backgroundColor = "white";
+			document.getElementById("moderateThinTr").style.backgroundColor = "white";
+			document.getElementById("mildThinTr").style.backgroundColor = "white";
+			document.getElementById("normalTr").style.backgroundColor = "white";
+			document.getElementById("overweightTr").style.backgroundColor = "white";
+			document.getElementById("obeseITr").style.backgroundColor = "white";
+			document.getElementById("obeseIITr").style.backgroundColor = "white";
+			document.getElementById("obeseIIITr").style.backgroundColor = "white";
+			
+			//Apply Color
+			if ( bmi < 16 ){
+
+				document.getElementById("servereThinTr").style.backgroundColor = "#ccffff";
+
+			} else if ( bmi >= 16 && bmi < 17){
+
+				document.getElementById("moderateThinTr").style.backgroundColor = "#ccffff";
+
+			} else if ( bmi >= 17 && bmi < 18.5){
+
+				document.getElementById("mildThinTr").style.backgroundColor = "#ccffff";
+
+			} else if ( bmi >= 18.5 && bmi < 25){
+
+				document.getElementById("normalTr").style.backgroundColor = "#99ff99";
+
+			} else if ( bmi >= 25 && bmi < 30 ){
+
+				document.getElementById("overweightTr").style.backgroundColor = "#ffffb3";
+
+			} else if ( bmi >= 30 && bmi < 35) {
+
+				document.getElementById("obeseITr").style.backgroundColor = "#ff9980"; 
+
+			} else if ( bmi >= 35 && bmi <= 40){
+
+				document.getElementById("obeseIITr").style.backgroundColor = "#ff9980";
+
+			} else {
+
+				document.getElementById("obeseIIITr").style.backgroundColor = "#ff9980";
+			}
+
+
+
+			
+		};
+	
+	</script>
+
+
+</div>
+
